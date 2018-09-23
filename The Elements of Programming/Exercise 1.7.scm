@@ -7,7 +7,7 @@
 
 (define (good-enough? guess old-guess)
   (< (abs (- guess old-guess))
-     (* guess 0.001))
+     (* guess 0.001)))
 
 (define (improve-guess guess x)
   (average guess (/ x guess)))
@@ -18,5 +18,3 @@
 (define (sqrt x)
   (sqrt-iter 1.0 0 x))
 
-; For small argument tolerance of 0.001 is larger than computing the square root of very smallest numbers.
-; For large argument  precision in big numbers is lose because of core representing floating numbers in cumputers at all..

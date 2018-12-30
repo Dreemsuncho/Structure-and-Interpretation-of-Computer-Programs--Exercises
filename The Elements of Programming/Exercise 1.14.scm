@@ -92,3 +92,5 @@
 ;; F(amount=n, kinds_of_coins=4) = (n/25) * (n/10) * (n/5) * 2n+1 or O(n⁴)
 ;; F(amount=n, kinds_of_coins=5) = (n/50) * (n/25) * (n/10) * (n/5) * 2n+1 or O(n⁵)
 ;; And from this we can say the orders of growth for any amount and 5 coins is O(n⁵) and this is the answer for the last question for the count_change(amount=11, coins=5).
+
+

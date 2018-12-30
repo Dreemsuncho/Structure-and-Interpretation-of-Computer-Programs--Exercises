@@ -1,8 +1,6 @@
 # Structure-and-Interpretation-of-Computer-Programs-SICP-Second-Edition-Exercises
-This repository contains entire set (in future should fill all missing submissions) of exercises from SCIP MIT book:
+This repository will contain entire set of exercises from SICP MIT Second Edition
 
-
-### Building Abstractions with Procedures
  #### The Elements of Programming
   * __Exercise 1.1.__ Below is a sequence of expressions. What is the result printed by the interpreter in response to each expression? Assume that the sequence is to be evaluated in the order in which it is presented:
     ```scheme

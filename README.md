@@ -1,4 +1,4 @@
-# Structure-and-Interpretation-of-Computer-Programs-SICP-Second-Edition-Exercises
+# Structure and Interpretation Of Computer Programs - Second Edition
 This repository will contain entire set of exercises from SICP MIT Second Edition
 
  #### The Elements of Programming

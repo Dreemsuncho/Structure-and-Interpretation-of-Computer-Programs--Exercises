@@ -236,6 +236,8 @@ b' ←
 
 
 ;; 1.22
+(require sicp)
+
 (define (smallest-divisor n)
   (find-divisor n 2))
 
@@ -254,17 +256,47 @@ b' ←
 (define (prime? n)
   (= n (smallest-divisor n)))
 
+(define (square x)
+  (* x x))
 
 (define (timed-prime-test n)
-  (newline)
-  (display n)
   (start-prime-test n (runtime)))
 
 (define (start-prime-test n start-time)
-  (if (prime? n)
-      (report-prime (- (runtime) 
-                       start-time))))
+  (cond ((prime? n)
+	 (newline)
+	 (display n)
+	 (report-prime (- (runtime) 
+			  start-time)))))
 
 (define (report-prime elapsed-time)
   (display " *** ")
   (display elapsed-time))
+
+(define (search-for-primes start end)
+  (cond ((even? start)
+	 (search-for-primes (+ start 1) end))
+	((< start end)
+	 (timed-prime-test start)
+	 (search-for-primes (+ start 2) end)))
+  )
+
+  (define (test min max tests-count)
+    (define (run times)
+      (cond ((> times 0)
+	     (newline)
+	     (search-for-primes min max)
+	     (run (- times 1)))))
+    
+    (run tests-count)
+    )
+
+
+  (define (test-pretty min max tests-count)
+    (test 10000000000000 10000000000100 3))
+    
+(test-pretty 1000000000000 1000000000064 6)
+(test-pretty 10000000000000 10000000000100 1)
+(test-pretty 100000000000000 100000000000098 1)
+(test-pretty 1000000000000000 1000000000000160 1)
+(test-pretty 10000000000000000 10000000000000080 1)

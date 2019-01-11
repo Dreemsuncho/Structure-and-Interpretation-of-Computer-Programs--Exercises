@@ -1,9 +1,6 @@
 
-
 ;; 1.22
 (require sicp)
-
-
 
 (define (smallest-divisor n)
   (find-divisor n 2))
@@ -59,75 +56,91 @@
     (run tests-count)    
     )
 
-
 (define current-total 0)
 
 (define (increase-total elapsed-time)
   (set! current-total (+ current-total elapsed-time)))
 
 
-
 (define (reset-current-total)
   (set! current-total 0))
 
-(define (calc-average per-test-count)
-  (define total 0)
-  (define r1 0)
-  (define r2 0)
-  (define r3 0)
-  
+(define (calc-ratio per-test-count)
   (reset-current-total)
   (test 100000000000 100000000057 per-test-count)
-
-  (set! total (+ total current-total))
-  (set! r1 current-total)
+  (define r1 current-total)
 
   (reset-current-total)
   (test 1000000000000 1000000000063 per-test-count)
-
-  (set! total (+ total current-total))
-  (set! r2 current-total)
+  (define r2 current-total)
 
   (reset-current-total)  
   (test 10000000000000 10000000000099 per-test-count)
+  (define r3 current-total)
 
-  (set! total (+ total current-total))
-  (set! r3 current-total)
+  (reset-current-total)  
+  (test 100000000000000 100000000000097 per-test-count)
+  (define r4 current-total)
+
+  (reset-current-total)  
+  (test 1000000000000000 1000000000000159 per-test-count)
+  (define r5 current-total)
+
+  (reset-current-total)  
+  (test 10000000000000000 10000000000000079 per-test-count)
+  (define r6 current-total)
 
   (newline)
   (newline)
-
   
-  (display "R1: ")
+  (display "             R1: ")
   (display r1)
+
   (newline)
+  (newline)
+
+  (define ratio (sqrt 10))
   (display "Prediction next: ")
-  (display (* r1 (sqrt 10)))
+  (display (* r1 ratio))
   (newline)
   (display "             R2: ")
   (display r2)
+
   (newline)
+  (newline)
+
   (display "Prediction next: ")
-  (display (* r2 (sqrt 10)))
+  (display (* r2 ratio))
   (newline)
   (display "             R3: ")
   (display r3)
-  ;;(display "Prediction: ")
-  ;;(display (square r3))
+  
   (newline)
   (newline)
-  (display "Total: ")
-  (display total)
+  
+  (display "Prediction next: ")
+  (display (* r3 ratio))
+  (newline)
+  (display "             R4: ")
+  (display r4)
+  
+  (newline)
+  (newline)
+  
+  (display "Prediction next: ")
+  (display (* r4 ratio))
+  (newline)
+  (display "             R5: ")
+  (display r5)
+
+  (newline)
+  (newline)
+  
+  (display "Prediction next: ")
+  (display (* r5 ratio))
+  (newline)
+  (display "             R6: ")
+  (display r6)
   )
 
-(calc-average 20)
-
-  ;; (test 10000000000000 10000000000100 1)
-  ;; (test 100000000000000 100000000000098 1)
-  ;; (test 1000000000000000 1000000000000160 1)
-;; (test 10000000000000000 10000000000000080 1)
-
-
-
-
-
+(calc-ratio 1)

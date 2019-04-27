@@ -1,9 +1,22 @@
 
-;; 1.22
+;; 1.23
 (require sicp)
 
 (define (smallest-divisor n)
   (find-divisor n 2))
+
+
+(define (next divisor)
+  (if (= divisor 2)
+      3
+      (+ divisor 2)))
+
+(define test-index 0)
+
+(define (next-function divisor)
+  (if (= test-index 0)
+      (+ divisor 1)
+      (next divisor)))
 
 (define (find-divisor n test-divisor)
   (cond ((> (square test-divisor) n) 
@@ -12,7 +25,7 @@
          test-divisor)
         (else (find-divisor 
                n 
-               (+ test-divisor 1)))))
+               (next-function test-divisor)))))
 
 (define (divides? a b)
   (= (remainder b a) 0))
@@ -66,6 +79,8 @@
   (set! current-total 0))
 
 (define (calc-ratio per-test-count)
+  (set! test-index 0)
+  
   (reset-current-total)
   (test 100000000000 100000000057 per-test-count)
   (define r1 current-total)
@@ -90,6 +105,40 @@
   (test 10000000000000000 10000000000000079 per-test-count)
   (define r6 current-total)
 
+  
+  (set! test-index 1)
+  
+  
+  (reset-current-total)
+  (test 100000000000 100000000057 per-test-count)
+  (define r1-new current-total)
+
+  (reset-current-total)
+  (test 1000000000000 1000000000063 per-test-count)
+  (define r2-new current-total)
+
+  (reset-current-total)  
+  (test 10000000000000 10000000000099 per-test-count)
+  (define r3-new current-total)
+
+  (reset-current-total)  
+  (test 100000000000000 100000000000097 per-test-count)
+  (define r4-new current-total)
+
+  (reset-current-total)  
+  (test 1000000000000000 1000000000000159 per-test-count)
+  (define r5-new current-total)
+
+  (reset-current-total)
+  (test 10000000000000000 10000000000000079 per-test-count)
+  (define r6-new current-total)
+
+
+  (newline)
+  (display "Ratio: ")
+  (display (/ r1 r2))
+  (newline)
+  
   (newline)
   (newline)
   
@@ -99,7 +148,7 @@
   (newline)
   (newline)
 
-  (define ratio (sqrt 10))
+  (define ratio (/ (sqrt 10) 2))
   (display "Prediction next: ")
   (display (* r1 ratio))
   (newline)
@@ -143,4 +192,7 @@
   (display r6)
   )
 
+
+
 (calc-ratio 2)
+

@@ -1,4 +1,4 @@
-(define (function x y)
-  ((if (< x y) - +) x y))
- 
-; If x < y then procedure returns '-' otherwise '+' and vice versa.
+#lang sicp
+(define (a-plus-abs-b a b)
+  ((if (> b 0) + -) a b))
+; If b > 0 then the procedure will return '+' otherwise '-'

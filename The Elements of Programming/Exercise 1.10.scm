@@ -8,9 +8,7 @@
         (else (A (- x 1)
                  (A x (- y 1))))))
 
-; SUB-01
 ;What are the values of the following expressions?
-
 ;x = 1, y = 10
 (A 1 10)
 (A (- 1 1) (A 1 (- 10 1)))

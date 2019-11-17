@@ -1,5 +1,14 @@
+#lang sicp
+
+
 (define (new-if predicate then-clause else-clause)
   (cond (predicate then-clause)
         (else else-clause)))
 
-; The 'if' is special form that evaluates result after predicate or consequent alternative, but this is not true for applicative-order evaluation (like procedures in scheme), they resolve all formal parameters before is applied, thus call itself in last expression that cause infinite loop.
+(define (sqrt-iter guess x)
+  (new-if (good-enough? guess x)
+	  guess
+	  (sqrt-iter (improve guess x) x)))
+
+
+; The 'if' statement is special form that evaluates result after a true predicate or consequent alternative, but this is not true for applicative-order evaluation (like scheme procedures), they resolve all formal parameters before they are applied, thus 'sqrt-iter' function call itself in last expression that cause infinite loop.

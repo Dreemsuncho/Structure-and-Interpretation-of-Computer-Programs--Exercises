@@ -1,3 +1,4 @@
+#lang sicp
 (define (sqrt-iter guess old-guess x)
   (if (good-enough? guess old-guess)
       guess

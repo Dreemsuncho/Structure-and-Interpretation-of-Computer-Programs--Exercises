@@ -9,6 +9,7 @@
                  (A x (- y 1))))))
 
 ;What are the values of the following expressions?
+
 ;x = 1, y = 10
 (A 1 10)
 (A (- 1 1) (A 1 (- 10 1)))
@@ -48,7 +49,6 @@
 (A 0 512)
 (* 2 512)
 1024
-
 
 ;x = 2, y = 4
 (A 2 4)
@@ -135,7 +135,6 @@
 ;See example above that start with (A 2 4), accordingly the result will be the same.
 
 
-; SUB-02.
 ;Give concise mathematical definitions for the functions computed by the procedures f, g, and h for positive integer values of n. For example, (k n) computes 5n2.
 
 (define (f n) (A 0 n))
@@ -145,6 +144,6 @@
 
 (f 1) ;2n
 (g 2) ;2ⁿ when n > 0 and 0 when n = 0
-(h 3) ;ⁿ2 or 2ʰ⁽ⁿ⁻¹⁾ if n > 1 (this type of exponent is called tetration)
+(h 3) ;ⁿ2 or 2ʰ⁽ⁿ⁻¹⁾ if n > 1 (tetration)
 ;if n = 1 then h(n) = 1, else n = 0 then h(n) = 0
 (k 4) ;5n2

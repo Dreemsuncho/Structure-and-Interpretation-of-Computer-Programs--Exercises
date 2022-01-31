@@ -1,6 +1,5 @@
 
-;; 1.22
-(require sicp)
+#lang racket
 
 (define (smallest-divisor n)
   (find-divisor n 2))

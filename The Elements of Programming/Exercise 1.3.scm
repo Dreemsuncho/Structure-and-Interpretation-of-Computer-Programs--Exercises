@@ -8,3 +8,7 @@
   (cond ((and (<= x y) (<= y z)) (sum-of-squares y z))
         ((and (<= y x) (<= x z)) (sum-of-squares x z))
         (else (sum-of-squares x y))))
+
+; test
+(two-largest-sum-of-square 2 3 1)
+; 13
